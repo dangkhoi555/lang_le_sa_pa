@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lặng lẽ Sa Pa — Nguyễn Thành Long</title>
+<style>
+:root{
+  --blue:#1e557c; --blue2:#3f7fa8; --sky:#eaf5fb; --cream:#fffdf8;
+  --ink:#17364b; --muted:#607789; --gold:#d6a84f; --white:#fff;
+  --shadow:0 12px 35px rgba(25,65,90,.12); --radius:22px;
+}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;font-family:Georgia,"Times New Roman",serif;color:var(--ink);background:#f7fbfd;line-height:1.7}
+a{text-decoration:none;color:inherit}
+.nav{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(13,53,82,.93);backdrop-filter:blur(12px);color:white}
+.nav-inner{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 22px}
+.logo{font-size:21px;font-weight:700;letter-spacing:.3px}
+.logo span{color:#ccecff}
+.links{display:flex;gap:7px;flex-wrap:wrap;justify-content:center}
+.links a{padding:7px 11px;border-radius:12px;font-size:14px}
+.links a:hover,.links a.active{background:rgba(255,255,255,.16)}
+.hero{
+  min-height:610px;padding:145px 20px 80px;display:flex;align-items:center;
+  background:
+    radial-gradient(circle at 20% 25%,rgba(255,255,255,.9),transparent 24%),
+    linear-gradient(160deg,#bfe1f2 0%,#76a9c8 43%,#285778 100%);
+  position:relative;overflow:hidden;color:white;
+}
+.hero:before{content:"";position:absolute;inset:auto -5% -170px;height:360px;background:#f7fbfd;border-radius:50% 50% 0 0/35% 35% 0 0}
+.mountains{position:absolute;left:0;right:0;bottom:90px;height:270px;opacity:.72}
+.mountain{position:absolute;bottom:0;width:0;height:0;border-left:190px solid transparent;border-right:190px solid transparent;border-bottom:260px solid rgba(31,82,111,.72)}
+.m1{left:3%}.m2{left:25%;border-left-width:260px;border-right-width:260px;border-bottom-color:rgba(46,103,132,.55)}
+.m3{right:7%;border-left-width:240px;border-right-width:240px;border-bottom-color:rgba(24,69,97,.58)}
+.hero-content{position:relative;z-index:2;max-width:1050px;margin:auto;text-align:center}
+.badge{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);padding:7px 15px;border-radius:99px;font-size:14px}
+.hero h1{font-size:clamp(48px,8vw,92px);margin:18px 0 2px;font-style:italic;text-shadow:0 5px 20px rgba(0,0,0,.2)}
+.hero h2{font-size:23px;font-weight:400;margin:0 0 20px}
+.hero p{max-width:720px;margin:auto;font-size:18px}
+.quote{margin-top:30px;font-style:italic;font-size:18px}
+.container{max-width:1200px;margin:-20px auto 70px;position:relative;z-index:3;padding:0 18px}
+.grid{display:grid;grid-template-columns:230px 1fr;gap:22px}
+.side{background:white;border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;height:max-content;position:sticky;top:85px}
+.side a{display:block;padding:11px 13px;border-radius:13px;margin:3px 0;font-weight:600}
+.side a:hover{background:var(--sky);color:var(--blue)}
+.side .mini{margin-top:24px;padding:16px;background:linear-gradient(150deg,#eef8fd,#fffaf0);border-radius:16px;color:#557080;font-style:italic}
+main{min-width:0}
+.section{background:white;border-radius:var(--radius);box-shadow:var(--shadow);padding:30px;margin-bottom:22px}
+.title{display:flex;align-items:center;gap:10px;margin:0 0 17px;color:var(--blue);font-size:27px}
+.title .ico{font-size:25px}
+.lead{font-size:17px}
+.info{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.info div{background:#f4f9fc;border-left:4px solid #8bbbd5;border-radius:12px;padding:12px 15px}
+.timeline{display:grid;gap:12px}
+.event{display:grid;grid-template-columns:110px 1fr;gap:15px;align-items:start}
+.event b{background:#eaf5fb;color:var(--blue);padding:7px 10px;border-radius:12px;text-align:center}
+.characters{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.card{border:1px solid #e4eef3;border-radius:18px;padding:20px;background:linear-gradient(145deg,#fff,#f5fbfd);transition:.2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 25px rgba(25,65,90,.10)}
+.avatar{width:65px;height:65px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#7fb8d6,#285b7d);color:white;font-size:28px;margin-bottom:10px}
+.card h3{margin:4px 0;color:var(--blue)}
+.tag{display:inline-block;font-size:12px;background:#edf6fa;color:#39667f;padding:3px 9px;border-radius:99px}
+.analysis{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.point{padding:18px;background:#f8fbfc;border-radius:16px}
+.point h3{margin-top:0;color:#2d6b8e}
+.message{background:linear-gradient(135deg,#eaf7ff,#fff6e7);text-align:center;padding:28px;border-radius:18px;font-size:20px;font-style:italic}
+.art{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.art div{padding:18px;border-radius:16px;background:#f5f8fb}
+.sources{font-size:14px;color:var(--muted)}
+.sources a{color:#2b7098;text-decoration:underline}
+.check{background:#eef7fc;border:1px solid #cfe5f1;overflow:hidden}
+.check table{width:100%;border-collapse:collapse;font-family:Arial,sans-serif;font-size:14px}
+.check th,.check td{border-bottom:1px solid #d8e7ee;padding:11px 9px;text-align:center}
+.check th:first-child,.check td:first-child{text-align:left}
+.check th{background:#dceff8;color:#1d4d6b}
+.check input{width:18px;height:18px;accent-color:#2d7aa3}
+.score{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;font-weight:700}
+#total{font-size:25px;color:var(--blue)}
+footer{background:#163f5c;color:#dbeef8;padding:35px 20px;text-align:center}
+button{border:0;background:var(--blue);color:white;padding:10px 15px;border-radius:12px;cursor:pointer;font-family:inherit}
+button:hover{background:#2d719d}
+@media(max-width:850px){
+ .grid{grid-template-columns:1fr}.side{position:relative;top:auto}.links{display:none}
+ .characters,.analysis,.art,.info{grid-template-columns:1fr}
+ .event{grid-template-columns:80px 1fr}
+ .hero{min-height:540px}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+ <div class="nav-inner">
+  <div class="logo">🏔️ Lặng lẽ Sa Pa</div>
+  <div class="links">
+   <a href="#gioi-thieu">Giới thiệu</a><a href="#tac-gia">Tác giả</a><a href="#tac-pham">Tác phẩm</a>
+   <a href="#nhan-vat">Nhân vật</a><a href="#noi-dung">Nội dung</a><a href="#nghe-thuat">Nghệ thuật</a><a href="#thong-diep">Thông điệp</a>
+  </div>
+ </div>
+</nav>
+
+<header class="hero">
+ <div class="mountains"><div class="mountain m1"></div><div class="mountain m2"></div><div class="mountain m3"></div></div>
+ <div class="hero-content">
+  <span class="badge">WEBSITE GIỚI THIỆU TRUYỆN NGẮN</span>
+  <h1>Lặng lẽ Sa Pa</h1>
+  <h2>Nguyễn Thành Long</h2>
+  <p>Một câu chuyện nhẹ nhàng về những con người âm thầm làm việc, cống hiến và làm đẹp cho cuộc đời.</p>
+  <div class="quote">“Trong cái lặng im của Sa Pa...”</div>
+ </div>
+</header>
+
+<div class="container">
+ <div class="grid">
+  <aside class="side">
+   <a href="#gioi-thieu">🏠 Giới thiệu chung</a>
+   <a href="#tac-gia">✒️ Tác giả</a>
+   <a href="#tac-pham">📖 Tác phẩm</a>
+   <a href="#nhan-vat">👥 Nhân vật</a>
+   <a href="#noi-dung">📜 Nội dung</a>
+   <a href="#nghe-thuat">⭐ Nghệ thuật</a>
+   <a href="#thong-diep">💙 Thông điệp</a>
+   <div class="mini">“Những con người làm việc lặng thầm nhưng không hề vô nghĩa.”</div>
+  </aside>
+
+  <main>
+   <section class="section" id="gioi-thieu">
+    <h2 class="title"><span class="ico">🌿</span> Giới thiệu chung</h2>
+    <p class="lead"><b>Lặng lẽ Sa Pa</b> là truyện ngắn của nhà văn <b>Nguyễn Thành Long</b>, viết năm 1970. Tác phẩm kể về cuộc gặp gỡ tình cờ trên đỉnh Yên Sơn giữa một anh thanh niên làm công tác khí tượng với ông họa sĩ già và cô kĩ sư trẻ.</p>
+    <div class="info">
+      <div><b>Thể loại:</b> Truyện ngắn</div><div><b>Tác giả:</b> Nguyễn Thành Long</div>
+      <div><b>Không gian:</b> Sa Pa – Yên Sơn</div><div><b>Chủ đề:</b> Vẻ đẹp của người lao động</div>
+    </div>
+   </section>
+
+   <section class="section" id="tac-gia">
+    <h2 class="title"><span class="ico">✒️</span> Tác giả Nguyễn Thành Long</h2>
+    <p>Nguyễn Thành Long (1925–1991) là nhà văn Việt Nam nổi bật với những truyện ngắn và kí giàu chất trữ tình. Ông thường hướng ngòi bút vào cuộc sống đời thường và phát hiện vẻ đẹp bình dị của con người trong lao động.</p>
+   </section>
+
+   <section class="section" id="tac-pham">
+    <h2 class="title"><span class="ico">📖</span> Tác phẩm & cốt truyện</h2>
+    <div class="timeline">
+      <div class="event"><b>1. Gặp gỡ</b><div>Trên chuyến xe lên Sa Pa, bác lái xe giới thiệu với ông họa sĩ và cô kĩ sư về một anh thanh niên đang làm công tác khí tượng trên đỉnh Yên Sơn.</div></div>
+      <div class="event"><b>2. Đến Yên Sơn</b><div>Xe dừng lại ít phút. Anh thanh niên xuất hiện, đón khách bằng sự chân thành và cởi mở rồi mời họ về nhà.</div></div>
+      <div class="event"><b>3. Trò chuyện</b><div>Anh kể về công việc đo gió, đo mưa, đo nắng, tính mây và báo số liệu đúng giờ. Qua câu chuyện, vẻ đẹp của anh dần hiện lên.</div></div>
+      <div class="event"><b>4. Khám phá</b><div>Ông họa sĩ và cô kĩ sư còn biết đến những con người khác cũng đang âm thầm cống hiến. Họ nhận ra giá trị của những việc làm bình dị.</div></div>
+      <div class="event"><b>5. Chia tay</b><div>Cuộc gặp kết thúc nhanh chóng. Ông họa sĩ muốn ghi lại hình ảnh anh thanh niên, còn cô kĩ sư mang theo những suy nghĩ mới về cuộc sống.</div></div>
+    </div>
+   </section>
+
+   <section class="section" id="nhan-vat">
+    <h2 class="title"><span class="ico">👥</span> Nhân vật tiêu biểu</h2>
+    <div class="characters">
+      <div class="card"><div class="avatar">🌦️</div><span class="tag">Nhân vật trung tâm</span><h3>Anh thanh niên</h3><p>Trẻ tuổi, sống một mình trên đỉnh Yên Sơn, yêu công việc, có tinh thần trách nhiệm và luôn chủ động tìm niềm vui trong lao động.</p></div>
+      <div class="card"><div class="avatar">🎨</div><span class="tag">Người quan sát</span><h3>Ông họa sĩ</h3><p>Giàu kinh nghiệm và tinh tế. Ông xúc động trước vẻ đẹp của anh thanh niên và muốn dùng nghệ thuật để lưu giữ vẻ đẹp ấy.</p></div>
+      <div class="card"><div class="avatar">🌱</div><span class="tag">Người khám phá</span><h3>Cô kĩ sư</h3><p>Trẻ trung, nhạy cảm, có những rung động và suy nghĩ mới khi gặp anh thanh niên.</p></div>
+      <div class="card"><div class="avatar">🚌</div><span class="tag">Người kết nối</span><h3>Bác lái xe</h3><p>Là cầu nối đưa các nhân vật đến với nhau, đồng thời góp phần giới thiệu và làm nổi bật vẻ đẹp của những con người ở Sa Pa.</p></div>
+    </div>
+   </section>
+
+   <section class="section" id="noi-dung">
+    <h2 class="title"><span class="ico">📜</span> Chủ đề & ý nghĩa</h2>
+    <div class="analysis">
+      <div class="point"><h3>🎯 Chủ đề</h3><p>Ca ngợi những con người lao động bình dị, âm thầm cống hiến cho đất nước và khẳng định giá trị của lao động có trách nhiệm.</p></div>
+      <div class="point"><h3>💡 Ý nghĩa</h3><p>Tác phẩm gợi nhắc rằng một cuộc sống có ý nghĩa không nhất thiết phải ồn ào; những đóng góp thầm lặng cũng tạo nên giá trị lớn lao.</p></div>
+    </div>
+   </section>
+
+   <section class="section" id="nghe-thuat">
+    <h2 class="title"><span class="ico">⭐</span> Đặc sắc nghệ thuật</h2>
+    <div class="art">
+      <div><b>🌄 Tình huống truyện</b><br>Cuộc gặp gỡ ngắn ngủi nhưng đủ để các nhân vật khám phá vẻ đẹp của nhau.</div>
+      <div><b>🗣️ Nghệ thuật kể chuyện</b><br>Kể theo dòng gặp gỡ, trò chuyện tự nhiên, tạo cảm giác nhẹ nhàng và chân thực.</div>
+      <div><b>🎨 Xây dựng nhân vật</b><br>Nhân vật được khắc họa qua lời nói, hành động, công việc và cách nhìn của các nhân vật khác.</div>
+      <div><b>🌿 Chất trữ tình</b><br>Thiên nhiên Sa Pa và vẻ đẹp tâm hồn con người hòa quyện, tạo không khí trong trẻo.</div>
+    </div>
+   </section>
+
+   <section class="section" id="thong-diep">
+    <h2 class="title"><span class="ico">💙</span> Thông điệp</h2>
+    <div class="message">Hãy biết trân trọng những con người đang âm thầm làm việc mỗi ngày. Khi mỗi người làm tốt phần việc của mình, cuộc sống sẽ trở nên tốt đẹp hơn.</div>
+   </section>
+
+   <section class="section check" id="danh-gia">
+    <h2 class="title" style="padding:0 18px"><span class="ico">✅</span> Bảng kiểm tra, đánh giá website</h2>
+    <table>
+      <thead><tr><th>Tiêu chí</th><th>Đạt</th><th>Chưa đạt</th><th>Điểm tối đa</th></tr></thead>
+      <tbody id="criteria">
+       <tr><td>Có đầy đủ thông tin giới thiệu tác phẩm</td><td><input type="checkbox" class="ok"></td><td><input type="checkbox"></td><td>1,0</td></tr>
+       <tr><td>Tóm tắt được cốt truyện và các sự kiện chính</td><td><input type="checkbox" class="ok"></td><td><input type="checkbox"></td><td>1,5</td></tr>
+       <tr><td>Xác định và phân tích được chủ đề, ý nghĩa</td><td><input type="checkbox" class="ok"></td><td><input type="checkbox"></td><td>1,5</td></tr>
+       <tr><td>Nêu được đặc sắc nghệ thuật</td><td><input type="checkbox" class="ok"></td><td><input type="checkbox"></td><td>1,0</td></tr>
+       <tr><td>Thông tin chính xác, có ghi nguồn</td><td><input type="checkbox" class="ok"></td><td><input type="checkbox"></td><td>0,5</td></tr>
+       <tr><td>Hình ảnh phù hợp, có giá trị minh họa</td><td><input type="checkbox" class="ok"></td><td><input type="checkbox"></td><td>1,0</td></tr>
+       <tr><td>Bố cục website rõ ràng, khoa học</td><td><input type="checkbox" class="ok"></td><td><input type="checkbox"></td><td>1,0</td></tr>
+       <tr><td>Màu sắc, phông chữ hài hòa, dễ đọc</td><td><input type="checkbox" class="ok"></td><td><input type="checkbox"></td><td>0,5</td></tr>
+       <tr><td>Có yếu tố sáng tạo/tương tác</td><td><input type="checkbox" class="ok"></td><td><input type="checkbox"></td><td>1,0</td></tr>
+       <tr><td>Website hoàn thiện, hoạt động tốt và trình bày rõ ràng</td><td><input type="checkbox" class="ok"></td><td><input type="checkbox"></td><td>1,0</td></tr>
+      </tbody>
+    </table>
+    <div class="score"><span>TỔNG</span><span id="total">0 / 10</span><button onclick="checkAll()">Đánh dấu đạt</button></div>
+   </section>
+
+   <section class="section sources">
+    <h2 class="title"><span class="ico">📚</span> Nguồn tham khảo</h2>
+    <p>Nguyễn Thành Long, “Lặng lẽ Sa Pa”. Nội dung giới thiệu và phân tích được trình bày theo kiến thức Ngữ văn THCS, diễn đạt lại phục vụ mục đích học tập. Khi nộp bài, bạn nên bổ sung đúng tên sách/SGK mà giáo viên yêu cầu.</p>
+   </section>
+  </main>
+ </div>
+</div>
+
+<footer>
+ <b>LẶNG LẼ SA PA</b> · Website học tập Văn học<br>
+Nguyễn Thành Long · Thiết kế phục vụ bài học
+</footer>
+
+<script>
+const weights=[1,1.5,1.5,1,.5,1,1,.5,1,1];
+document.querySelectorAll('.ok').forEach((box,i)=>{
+ box.addEventListener('change',()=>{ 
+   if(box.checked) box.closest('tr').querySelectorAll('input')[1].checked=false;
+   updateScore();
+ });
+});
+document.querySelectorAll('#criteria tr').forEach(row=>{
+ row.querySelectorAll('input')[1].addEventListener('change',e=>{
+   if(e.target.checked) row.querySelectorAll('input')[0].checked=false;
+   updateScore();
+ });
+});
+function updateScore(){
+ let total=0;
+ document.querySelectorAll('.ok').forEach((b,i)=>{if(b.checked) total+=weights[i]});
+ document.getElementById('total').textContent=total.toFixed(1).replace('.0','')+' / 10';
+}
+function checkAll(){
+ document.querySelectorAll('.ok').forEach((b,i)=>{b.checked=true;b.closest('tr').querySelectorAll('input')[1].checked=false});
+ updateScore();
+}
+</script>
+</body>
+</html>
