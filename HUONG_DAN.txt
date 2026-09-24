@@ -1,0 +1,15 @@
+WEB LẶNG LẼ SA PA - PHIÊN BẢN CẬP NHẬT
+1. Mở file index.html bằng Chrome/Edge để xem website.
+2. Đã bỏ hoàn toàn bảng đánh giá tiêu chí.
+3. Đã thêm ảnh phong cảnh Sa Pa thật ở phần đầu và mục "Hình ảnh Sa Pa".
+4. Ảnh được lấy từ Wikimedia Commons; trang web có ghi nguồn và giấy phép.
+5. Website vẫn gồm:
+- Giới thiệu tác phẩm và tác giả
+- Tóm tắt cốt truyện
+- Nhân vật
+- Chủ đề, ý nghĩa
+- Đặc sắc nghệ thuật
+- Thông điệp
+- Gallery hình ảnh
+- Nguồn tham khảo
+- Menu điều hướng và responsive cho điện thoại

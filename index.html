@@ -23,8 +23,8 @@ a{text-decoration:none;color:inherit}
 .hero{
   min-height:610px;padding:145px 20px 80px;display:flex;align-items:center;
   background:
-    radial-gradient(circle at 20% 25%,rgba(255,255,255,.9),transparent 24%),
-    linear-gradient(160deg,#bfe1f2 0%,#76a9c8 43%,#285778 100%);
+    linear-gradient(90deg,rgba(11,49,76,.72),rgba(24,82,116,.30)),
+    url("https://upload.wikimedia.org/wikipedia/commons/3/37/SapaPanorama.jpg") center/cover no-repeat;
   position:relative;overflow:hidden;color:white;
 }
 .hero:before{content:"";position:absolute;inset:auto -5% -170px;height:360px;background:#f7fbfd;border-radius:50% 50% 0 0/35% 35% 0 0}
@@ -66,6 +66,16 @@ main{min-width:0}
 .message{background:linear-gradient(135deg,#eaf7ff,#fff6e7);text-align:center;padding:28px;border-radius:18px;font-size:20px;font-style:italic}
 .art{display:grid;grid-template-columns:1fr 1fr;gap:15px}
 .art div{padding:18px;border-radius:16px;background:#f5f8fb}
+
+.gallery{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:14px}
+.gallery figure{margin:0;background:#f5f9fb;border-radius:18px;overflow:hidden;box-shadow:0 8px 24px rgba(25,65,90,.10)}
+.gallery img{width:100%;height:240px;object-fit:cover;display:block;transition:transform .35s}
+.gallery figure:first-child img{height:300px}
+.gallery figure:hover img{transform:scale(1.04)}
+.gallery figcaption{padding:11px 13px;font-size:14px;color:#587080}
+.credit{font-size:12px;color:#78909d;margin-top:12px}
+@media(max-width:850px){.gallery{grid-template-columns:1fr}.gallery figure:first-child img,.gallery img{height:240px}}
+
 .sources{font-size:14px;color:var(--muted)}
 .sources a{color:#2b7098;text-decoration:underline}
 .check{background:#eef7fc;border:1px solid #cfe5f1;overflow:hidden}
@@ -93,7 +103,7 @@ button:hover{background:#2d719d}
   <div class="logo">🏔️ Lặng lẽ Sa Pa</div>
   <div class="links">
    <a href="#gioi-thieu">Giới thiệu</a><a href="#tac-gia">Tác giả</a><a href="#tac-pham">Tác phẩm</a>
-   <a href="#nhan-vat">Nhân vật</a><a href="#noi-dung">Nội dung</a><a href="#nghe-thuat">Nghệ thuật</a><a href="#thong-diep">Thông điệp</a>
+   <a href="#nhan-vat">Nhân vật</a><a href="#noi-dung">Nội dung</a><a href="#nghe-thuat">Nghệ thuật</a><a href="#thong-diep">Thông điệp</a><a href="#hinh-anh">Hình ảnh</a>
   </div>
  </div>
 </nav>
@@ -181,29 +191,32 @@ button:hover{background:#2d719d}
     <div class="message">Hãy biết trân trọng những con người đang âm thầm làm việc mỗi ngày. Khi mỗi người làm tốt phần việc của mình, cuộc sống sẽ trở nên tốt đẹp hơn.</div>
    </section>
 
-   <section class="section check" id="danh-gia">
-    <h2 class="title" style="padding:0 18px"><span class="ico">✅</span> Bảng kiểm tra, đánh giá website</h2>
-    <table>
-      <thead><tr><th>Tiêu chí</th><th>Đạt</th><th>Chưa đạt</th><th>Điểm tối đa</th></tr></thead>
-      <tbody id="criteria">
-       <tr><td>Có đầy đủ thông tin giới thiệu tác phẩm</td><td><input type="checkbox" class="ok"></td><td><input type="checkbox"></td><td>1,0</td></tr>
-       <tr><td>Tóm tắt được cốt truyện và các sự kiện chính</td><td><input type="checkbox" class="ok"></td><td><input type="checkbox"></td><td>1,5</td></tr>
-       <tr><td>Xác định và phân tích được chủ đề, ý nghĩa</td><td><input type="checkbox" class="ok"></td><td><input type="checkbox"></td><td>1,5</td></tr>
-       <tr><td>Nêu được đặc sắc nghệ thuật</td><td><input type="checkbox" class="ok"></td><td><input type="checkbox"></td><td>1,0</td></tr>
-       <tr><td>Thông tin chính xác, có ghi nguồn</td><td><input type="checkbox" class="ok"></td><td><input type="checkbox"></td><td>0,5</td></tr>
-       <tr><td>Hình ảnh phù hợp, có giá trị minh họa</td><td><input type="checkbox" class="ok"></td><td><input type="checkbox"></td><td>1,0</td></tr>
-       <tr><td>Bố cục website rõ ràng, khoa học</td><td><input type="checkbox" class="ok"></td><td><input type="checkbox"></td><td>1,0</td></tr>
-       <tr><td>Màu sắc, phông chữ hài hòa, dễ đọc</td><td><input type="checkbox" class="ok"></td><td><input type="checkbox"></td><td>0,5</td></tr>
-       <tr><td>Có yếu tố sáng tạo/tương tác</td><td><input type="checkbox" class="ok"></td><td><input type="checkbox"></td><td>1,0</td></tr>
-       <tr><td>Website hoàn thiện, hoạt động tốt và trình bày rõ ràng</td><td><input type="checkbox" class="ok"></td><td><input type="checkbox"></td><td>1,0</td></tr>
-      </tbody>
-    </table>
-    <div class="score"><span>TỔNG</span><span id="total">0 / 10</span><button onclick="checkAll()">Đánh dấu đạt</button></div>
+
+   <section class="section" id="hinh-anh">
+    <h2 class="title"><span class="ico">🏔️</span> Hình ảnh Sa Pa</h2>
+    <p>Những hình ảnh dưới đây giúp người xem hình dung rõ hơn về không gian núi non, thung lũng và vẻ đẹp trong trẻo của Sa Pa — bối cảnh gắn với câu chuyện.</p>
+    <div class="gallery">
+      <figure>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/SapaPanorama.jpg" alt="Toàn cảnh Sa Pa">
+        <figcaption><b>Toàn cảnh Sa Pa</b> — không gian núi non rộng lớn.</figcaption>
+      </figure>
+      <figure>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Landscape_in_Sa_Pa.jpg" alt="Phong cảnh núi và ruộng bậc thang Sa Pa">
+        <figcaption><b>Phong cảnh Sa Pa</b> — núi rừng và ruộng bậc thang.</figcaption>
+      </figure>
+      <figure>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/View_of_Sa_Pa.jpg" alt="Sa Pa nhìn từ đường mòn Ta Phin">
+        <figcaption><b>Sa Pa nhìn từ Ta Phin</b> — vẻ đẹp bình dị của vùng cao.</figcaption>
+      </figure>
+    </div>
+    <div class="credit">
+      Ảnh: Wikimedia Commons. Ảnh panorama do AlfredBoc phát hành phạm vi công cộng; các ảnh phong cảnh của Christophe95 theo CC BY-SA 4.0.
+    </div>
    </section>
 
    <section class="section sources">
     <h2 class="title"><span class="ico">📚</span> Nguồn tham khảo</h2>
-    <p>Nguyễn Thành Long, “Lặng lẽ Sa Pa”. Nội dung giới thiệu và phân tích được trình bày theo kiến thức Ngữ văn THCS, diễn đạt lại phục vụ mục đích học tập. Khi nộp bài, bạn nên bổ sung đúng tên sách/SGK mà giáo viên yêu cầu.</p>
+    <p>Nguyễn Thành Long, “Lặng lẽ Sa Pa”. Nội dung giới thiệu và phân tích được trình bày theo kiến thức Ngữ văn THCS, diễn đạt lại phục vụ mục đích học tập. Hình ảnh phong cảnh: Wikimedia Commons (AlfredBoc; Christophe95).</p>
    </section>
   </main>
  </div>
